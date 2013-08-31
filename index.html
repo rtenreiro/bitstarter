@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
  <head>
-   <meta charset="utf-8">
-   <title>RT First Bitstarter</title>
+   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+   <meta property="og:site_name" content="LiesAndTruths">
+   <meta property="og:title" content="LiesAndTruths, Human Lie Detector ">
+   <meta name="description" content="Have in your phone a Human Lie Detector.">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
@@ -12,6 +14,63 @@
    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" rel="stylesheet" type="text/css">
    <style type="text/css">
+/* contact form
+#####################################################################################
+*/
+#input, #contact-form, #contact-form textarea {
+    width:80%;
+    background:#efefef;
+    border:1px solid #dedede;
+    padding:10px;
+    margin-top:3px;
+    font-size:0.9em;
+    color:#3a3a3a;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form input[type="tel"],
+#contact-form input[type="url"],
+#contact-form textarea {
+  width:300px;
+  box-sizing: 300 px;
+    box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+    -webkit-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+    -moz-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
+    border:1px solid #CCC;
+    background:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+    border-radius:5px
+}
+#contact-form button[type="submit"] {
+    cursor:pointer;
+    width:300px;
+    border:none;
+    background:#666;
+    background-image:linear-gradient(bottom, #666 0%, #333 52%);
+    background-image:-moz-linear-gradient(bottom, #666 0%, #333 52%);
+    background-image:-webkit-linear-gradient(bottom, #666 0%, #333 52%);
+    color:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+    border-radius:5px;
+}
+::-webkit-input-placeholder {
+    color:#333;
+}
+:-moz-placeholder {
+    color:#333;
+}
+::-moz-placeholder {
+    color:#333;
+}
+:-ms-input-placeholder {
+    color:#333;
+}
     /* Large desktop */
     @media (min-width: 980px) { 
      body {
@@ -95,8 +154,85 @@
       width:180px;
       margin: 0 auto;
       }
-    </style>
+   /*ASIDES & FOOTER
+#####################################################################################
+*/
 
+#address{
+  float: left;
+  margin-left: 50px;
+  margin-top: 30px;
+  color: #333;
+  font-size: 12px;
+  }
+  
+.address p{
+  color:#CCCCCC;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    line-height:26px;
+  }
+  
+#formulario{
+  float:left;
+  width:400px;
+  margin-left:15px;
+  border-right:1px dotted #CCCCCC;
+  margin-top:30px;
+  }
+  
+.formulario input{
+  font-size:12px;
+  }
+#TTD {
+  font-color: #333;
+  color: #333;
+  } 
+  
+table.formulario tr td{
+  color:#333;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+  }
+  
+.tit_form{
+   color:#333;
+   font-family:Arial, Helvetica, sans-serif;
+   font-size:12px;
+  }
+    
+aside h3 {
+font-size: 18px;
+}
+</style>
+<? sendEmail.php
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $from = 'From: $email'; 
+    $to = 'tenreiroramon@gmail.com'; 
+    $subject = 'From www.tenreiros.com';
+    $human = $_POST['human'];
+			
+    $body = "From: $name\n E-Mail: $email\n Message:\n $message";
+    $header = 'From: '$email"\r\n";
+    $header = "X-Mailer: PHP/".phpversion() ."\r\n";
+    $header = "Mime-Version: 1.0 \r\n";
+    $header = "Content-Type: text/plain";   
+    mail($to, $subject, utf8_decode(($body), $header);
+    echo '&estatus=ok&';
+?>
+<script type="text/javascript">
+
+//Validar una dirección de email
+function validacion(){
+ valor = document.getElementsByName("email").value;
+ if( !(/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/.test(valor)) ) {
+    return false;}
+ return true ; //si quieres enviar el formulario
+
+}
+</script>
     <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-42967715-1']);
@@ -108,9 +244,10 @@
   })();
     </script>
  </head>
- <body>
-   <!-- Mobile-friendly navbar adapted from example. -->
-   <!-- http://twitter.github.io/bootstrap/examples/starter/template.html -->
+ <!--[if lt IE 9 ]><body id="homepage" class="lt-ie9" data-spy="scroll" data-target="#header"><![endif]-->
+ <!--[if (gte IE 9)|!(IE)]><!--> <body id="homepage" data-spy="scroll" data-target="#header"><!--<![endif]-->
+ <!-- Mobile-friendly navbar adapted from example. -->
+ <!-- http://twitter.github.io/bootstrap/examples/starter/template.html -->
 <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -120,11 +257,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#"><img src="http://tenreiros.com/Imagenes/logo1.png"></a>
+          <a class="brand" href="#home"><img src="http://tenreiros.com/Imagenes/logo1.png"></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
+              <li class="active"><a href="#home">Home</a></li>
+              <li><a href="#about">About me</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -150,7 +287,7 @@
           <p class="lead">Human Lie Detector in Your Phone!</p>
         </div>
       </div>
-      <div class="row-fluid pitch">
+      <div class="row-fluid pitch" id="home">
         <div class="span5 offset1 video">
          <iframe width="390" height="305" src="http://www.youtube.com/embed/EXm6YbXxSYk" frameborder="0"></iframe>
         </div>
@@ -280,6 +417,63 @@
      </div>  
    </div>
   </div>
+  <div class="row-fluid" id="about">
+    <div class="span 5 offset3 asset ">
+    <img src="http://www.tenreiros.com/Imagenes/painting/600PSalon.png" alt="Family" width="480" class="img-polaroid" >
+          <p>Family Self-portrait - Oleo by Ramon Tenreiro</p> 
+     </div>
+     <div class="span12 copy">
+     <p>I am an architect and I have a MBA, therefore I used to spend my life creating houses and real state developing. 
+     I have designed a wide range of architectural projects, structural, facilities, and land development. 
+     I assumed full responsibilities: design, calculating (structural, electrical, pipes/plumbing, etc.) managing and controlling project. 
+     From this, it has been built 103 apartments.</p> <ul>
+            <li><a href="http://www.tenreiros.com/architecture.html">Architecture.</a></li>
+            <li><a href="http://www.tenreiros.com/projects.html">Projects.</a></li>
+            <li><a href="http://www.tenreiros.com/building.html">Building.</a></li>
+          </ul>
+          <p>I enjoy creating on Internet so I am attending some online courses "An introduction to interactive Programming in Python" from Rice University,
+          and "Startup Engineering" from Stanford University. Furthermore, I have created  some sites and games.</p>
+          <ul>
+            <li><a href="http://www.tenreiros.com/internet.html">Webs.</a></li>
+            <li><a href="http://www.tenreiros.com/games.html">Python Games.</a></li>
+            <li><a href="http://www.tenreiros.com/internet.html">Flash-Javascript-HTML5.</a></li>
+          </ul>
+           <h3>Painting</h3>
+          <p>I love painting so I have created some pictures that I would like share with you.</p>
+          <ul>
+            <li><a href="http://www.tenreiros.com/painting.html">Painting.</a></li>
+          </ul>    
+    </div>
+    </div>
+    <div class="row-fluid" id="contact">
+    <div class="span4" id="formulario">
+     <form id="contact-form" action="/sendEmail.php" method="post">
+        <h3>Get in touch</h3>
+        <div>
+            <label>
+                <span>Name:</span>
+                <input name="name" type="text" autofocus required  tabindex="1" value="">
+             </label>
+        </div>
+        <div>
+            <label>
+                <span>Email:</span>
+                <input name="email"  type="email" tabindex="2" required>
+            </label>
+        </div>    
+        <div id>
+            <label>
+               <span>Message:</span>
+               <textarea name="message"  tabindex="3" required></textarea>
+            </label>
+        </div>
+        <div>
+         
+            <input type="submit" name="button" onsubmit="return validacion()" value="Send"/>
+            <input type="reset"  name="reset" id="restablecer" value="Reset" />
+        </div>
+        </form>
+      </div>
    <!-- Not crucial, but we put this under a CC By-SA 3.0 license -->
    <!-- http://creativecommons.org/licenses/  -->
    <div class="row-fluid footer">
