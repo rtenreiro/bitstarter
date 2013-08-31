@@ -13,226 +13,7 @@
    <script src="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap.js"></script>
    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" rel="stylesheet" type="text/css">
-   <style type="text/css">
-/* contact form
-#####################################################################################
-*/
-#input, #contact-form, #contact-form textarea {
-    width:80%;
-    background:#efefef;
-    border:1px solid #dedede;
-    padding:10px;
-    margin-top:3px;
-    font-size:0.9em;
-    color:#3a3a3a;
-    border-radius:5px;
-    -moz-border-radius:5px;
-    -webkit-border-radius:5px;
-}
 
-#contact-form input[type="text"],
-#contact-form input[type="email"],
-#contact-form input[type="tel"],
-#contact-form input[type="url"],
-#contact-form textarea {
-  width:300px;
-  box-sizing: 300 px;
-    box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
-    -webkit-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
-    -moz-box-shadow:inset 0 1px 2px #DDD, 0 1px 0 #FFF;
-    border:1px solid #CCC;
-    background:#FFF;
-    margin:0 0 5px;
-    padding:10px;
-    border-radius:5px
-}
-#contact-form button[type="submit"] {
-    cursor:pointer;
-    width:300px;
-    border:none;
-    background:#666;
-    background-image:linear-gradient(bottom, #666 0%, #333 52%);
-    background-image:-moz-linear-gradient(bottom, #666 0%, #333 52%);
-    background-image:-webkit-linear-gradient(bottom, #666 0%, #333 52%);
-    color:#FFF;
-    margin:0 0 5px;
-    padding:10px;
-    border-radius:5px;
-}
-::-webkit-input-placeholder {
-    color:#333;
-}
-:-moz-placeholder {
-    color:#333;
-}
-::-moz-placeholder {
-    color:#333;
-}
-:-ms-input-placeholder {
-    color:#333;
-}
-    /* Large desktop */
-    @media (min-width: 980px) { 
-     body {
-     padding-top: 60px;
-     }
-     .linediv-l {
-       border-right: 1px white solid;
-     }
-     .linediv-r {
-       border-left: 1px white solid;
-     }
-    }
-    /* Landscape phones and down */
-     @media (max-width: 480px) { 
-      .copy {
-       padding: 2.5% 10%;
-      }
-      .linediv-l {
-       border-bottom: 1px white solid;
-      }
-      .linediv-r {
-       border-top: 1px white solid;
-      }
-     }
-     /* All form factors */
-      /* Main body and headings */
-      body{
-        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-      }
-      .heading, .subheading {
-        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-        text-align: center;
-      }
-      p.lead {
-        padding-top: 1.5%;
-        font-size: 24px;
-        line-height: 30px;
-      }
-      p {
-        font-size: 18px;
-        line-height: 24px;
-      }
-      /* Video pitch and Action */
-      .pitch {
-        padding: 2.5% 0%;
-      }
-      .order {
-        padding: 2% 0%;
-      }
-      .actions {
-        background-color: #343434;
-        padding: 3% 0%;
-      }
-      .video, .thermometer, .order, .social, .statistics {
-        text-align: center;
-      }
-      .statistics h3, .statistics p {
-        color: white;
-      }
-      /* Marketing Copy and Footer */
-      .copy {
-        padding-top: 2.5%;
-        padding-bottom: 2.5%;
-        text-align: justify;
-      }
-      .asset {
-        padding: 2.5% 0%;
-      }
-      .footer {
-        color: #285f77;
-        text-align: center;
-      }
-      .footer p {
-        font-size: 11px;
-      }
-      .footer a {
-        color: #ffc95f;
-      }
-     /* http://support.addthis.com/customer/portal/questions/1136093-share-buttons-in-center-position */      
-      div.addthis_toolbox {
-      width:180px;
-      margin: 0 auto;
-      }
-   /*ASIDES & FOOTER
-#####################################################################################
-*/
-
-#address{
-  float: left;
-  margin-left: 50px;
-  margin-top: 30px;
-  color: #333;
-  font-size: 12px;
-  }
-  
-.address p{
-  color:#CCCCCC;
-    font-family:Arial, Helvetica, sans-serif;
-    font-size:12px;
-    line-height:26px;
-  }
-  
-#formulario{
-  float:left;
-  width:400px;
-  margin-left:15px;
-  border-right:1px dotted #CCCCCC;
-  margin-top:30px;
-  }
-  
-.formulario input{
-  font-size:12px;
-  }
-#TTD {
-  font-color: #333;
-  color: #333;
-  } 
-  
-table.formulario tr td{
-  color:#333;
-font-family:Arial, Helvetica, sans-serif;
-font-size:12px;
-  }
-  
-.tit_form{
-   color:#333;
-   font-family:Arial, Helvetica, sans-serif;
-   font-size:12px;
-  }
-    
-aside h3 {
-font-size: 18px;
-}
-</style>
-<? sendEmail.php
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
-    $from = 'From: $email'; 
-    $to = 'tenreiroramon@gmail.com'; 
-    $subject = 'From www.tenreiros.com';
-    $human = $_POST['human'];
-			
-    $body = "From: $name\n E-Mail: $email\n Message:\n $message";
-    $header = 'From: '$email"\r\n";
-    $header = "X-Mailer: PHP/".phpversion() ."\r\n";
-    $header = "Mime-Version: 1.0 \r\n";
-    $header = "Content-Type: text/plain";   
-    mail($to, $subject, utf8_decode(($body), $header);
-    echo '&estatus=ok&';
-?>
-<script type="text/javascript">
-
-//Validar una dirección de email
-function validacion(){
- valor = document.getElementsByName("email").value;
- if( !(/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/.test(valor)) ) {
-    return false;}
- return true ; //si quieres enviar el formulario
-
-}
-</script>
     <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-42967715-1']);
@@ -248,7 +29,7 @@ function validacion(){
  <!--[if (gte IE 9)|!(IE)]><!--> <body id="homepage" data-spy="scroll" data-target="#header"><!--<![endif]-->
  <!-- Mobile-friendly navbar adapted from example. -->
  <!-- http://twitter.github.io/bootstrap/examples/starter/template.html -->
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top id="home">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar"
@@ -262,7 +43,7 @@ function validacion(){
             <ul class="nav">
               <li class="active"><a href="#home">Home</a></li>
               <li><a href="#about">About me</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="http://www.tenreiros.com/contact.html">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -287,7 +68,7 @@ function validacion(){
           <p class="lead">Human Lie Detector in Your Phone!</p>
         </div>
       </div>
-      <div class="row-fluid pitch" id="home">
+      <div class="row-fluid pitch" >
         <div class="span5 offset1 video">
          <iframe width="390" height="305" src="http://www.youtube.com/embed/EXm6YbXxSYk" frameborder="0"></iframe>
         </div>
@@ -445,36 +226,7 @@ function validacion(){
           </ul>    
     </div>
     </div>
-    <div class="row-fluid" id="contact">
-    <div class="span4" id="formulario">
-     <form id="contact-form" action="/sendEmail.php" method="post">
-        <h3>Get in touch</h3>
-        <div>
-            <label>
-                <span>Name:</span>
-                <input name="name" type="text" autofocus required  tabindex="1" value="">
-             </label>
-        </div>
-        <div>
-            <label>
-                <span>Email:</span>
-                <input name="email"  type="email" tabindex="2" required>
-            </label>
-        </div>    
-        <div id>
-            <label>
-               <span>Message:</span>
-               <textarea name="message"  tabindex="3" required></textarea>
-            </label>
-        </div>
-        <div>
-         
-            <input type="submit" name="button" onsubmit="return validacion()" value="Send"/>
-            <input type="reset"  name="reset" id="restablecer" value="Reset" />
-        </div>
-        </form>
-      </div>
-   <!-- Not crucial, but we put this under a CC By-SA 3.0 license -->
+    <!-- Not crucial, but we put this under a CC By-SA 3.0 license -->
    <!-- http://creativecommons.org/licenses/  -->
    <div class="row-fluid footer">
     <div class="span12">
